@@ -12,7 +12,7 @@ python-alipay-sdk==1.10.1
 redis==3.3.11
 uWSGI==2.0.18
 Whoosh==2.7.4
-Pillow==6.1.0
+Pillow==6.2.0
 mutagen==1.42.0
 requests==2.20.0
 
