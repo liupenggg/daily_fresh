@@ -1,0 +1,77 @@
+*** Starting uWSGI 2.0.18 (64bit) on [Tue Nov  5 19:43:05 2019] ***
+compiled with version: 7.4.0 on 04 November 2019 05:33:46
+os: Linux-4.15.0-65-generic #74-Ubuntu SMP Tue Sep 17 17:06:04 UTC 2019
+nodename: OrangeS
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 2
+current working directory: /home/wangm/PycharmProjects/daily_fresh
+writing pidfile to uwsgi2.pid
+detected binary path: /usr/local/bin/uwsgi
+chdir() to /home/wangm/PycharmProjects/daily_fresh
+your processes number limit is 15445
+your memory page size is 4096 bytes
+detected max file descriptor number: 4096
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8081 fd 3
+Python version: 3.6.8 (default, Oct  7 2019, 12:59:55)  [GCC 8.3.0]
+Python main interpreter initialized at 0x5581766234b0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 416880 bytes (407 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x5581766234b0 pid: 62226 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 62226)
+spawned uWSGI worker 1 (pid: 62228, cores: 2)
+spawned uWSGI worker 2 (pid: 62229, cores: 2)
+spawned uWSGI worker 3 (pid: 62230, cores: 2)
+spawned uWSGI worker 4 (pid: 62232, cores: 2)
+[pid: 62232|app: 0|req: 1/1] 192.168.1.104 () {40 vars in 735 bytes} [Tue Nov  5 19:55:00 2019] GET /user/ => generated 0 bytes in 583 msecs (HTTP/1.1 302) 5 headers in 160 bytes (1 switches on core 0)
+[pid: 62232|app: 0|req: 2/2] 192.168.1.106 () {34 vars in 537 bytes} [Tue Nov  5 19:56:12 2019] GET /favicon.ico => generated 77 bytes in 41 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 62232|app: 0|req: 3/3] 192.168.1.106 () {38 vars in 606 bytes} [Tue Nov  5 19:56:27 2019] GET /user/login/ => generated 2381 bytes in 16 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 62229|app: 0|req: 1/4] 192.168.1.106 () {40 vars in 712 bytes} [Tue Nov  5 19:56:40 2019] GET /user/register/ => generated 2774 bytes in 429 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 62230|app: 0|req: 1/5] 192.168.1.106 () {38 vars in 658 bytes} [Tue Nov  5 19:56:49 2019] GET /user/login/ => generated 2381 bytes in 514 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 62230|app: 0|req: 2/6] 192.168.1.106 () {30 vars in 502 bytes} [Tue Nov  5 19:56:51 2019] GET /favicon.ico => generated 77 bytes in 8 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 62232|app: 0|req: 4/7] 192.168.1.106 () {30 vars in 502 bytes} [Tue Nov  5 19:58:08 2019] GET /favicon.ico => generated 77 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 62230|app: 0|req: 3/8] 192.168.1.106 () {48 vars in 870 bytes} [Tue Nov  5 19:58:16 2019] POST /cart/add/ => generated 48 bytes in 2 msecs (HTTP/1.1 200) 4 headers in 114 bytes (1 switches on core 0)
+[pid: 62229|app: 0|req: 2/9] 192.168.1.106 () {40 vars in 701 bytes} [Tue Nov  5 19:58:24 2019] GET /user/register/ => generated 2774 bytes in 2 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 62232|app: 0|req: 5/10] 192.168.1.106 () {46 vars in 862 bytes} [Tue Nov  5 19:58:56 2019] POST /user/register/ => generated 0 bytes in 198 msecs (HTTP/1.1 302) 4 headers in 129 bytes (1 switches on core 0)
+[pid: 62229|app: 0|req: 3/11] 192.168.1.106 () {30 vars in 502 bytes} [Tue Nov  5 19:58:57 2019] GET /favicon.ico => generated 77 bytes in 2 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 62228|app: 0|req: 1/12] 192.168.1.106 () {30 vars in 502 bytes} [Tue Nov  5 19:59:02 2019] GET /favicon.ico => generated 77 bytes in 437 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 62232|app: 0|req: 6/13] 192.168.1.106 () {40 vars in 712 bytes} [Tue Nov  5 19:59:22 2019] GET /user/register/ => generated 2774 bytes in 6 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 62229|app: 0|req: 4/14] 192.168.1.106 () {38 vars in 658 bytes} [Tue Nov  5 19:59:38 2019] GET /user/login/ => generated 2381 bytes in 6 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 62230|app: 0|req: 4/15] 192.168.1.106 () {40 vars in 712 bytes} [Tue Nov  5 19:59:41 2019] GET /user/register/ => generated 2774 bytes in 2 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 62232|app: 0|req: 7/16] 192.168.1.106 () {30 vars in 502 bytes} [Tue Nov  5 19:59:46 2019] GET /favicon.ico => generated 77 bytes in 1 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 62228|app: 0|req: 2/17] 192.168.1.106 () {30 vars in 502 bytes} [Tue Nov  5 19:59:59 2019] GET /favicon.ico => generated 77 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 62232|app: 0|req: 8/18] 192.168.1.106 () {40 vars in 712 bytes} [Tue Nov  5 20:00:37 2019] GET /user/register/ => generated 2774 bytes in 6 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 62229|app: 0|req: 5/19] 192.168.1.106 () {46 vars in 862 bytes} [Tue Nov  5 20:00:55 2019] POST /user/register/ => generated 2792 bytes in 56 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 62230|app: 0|req: 5/20] 192.168.1.106 () {42 vars in 729 bytes} [Tue Nov  5 20:01:19 2019] GET /index/ => generated 14437 bytes in 247 msecs (HTTP/1.1 200) 4 headers in 125 bytes (1 switches on core 0)
+[pid: 62230|app: 0|req: 6/21] 192.168.1.106 () {40 vars in 701 bytes} [Tue Nov  5 20:01:21 2019] GET /user/login/ => generated 2381 bytes in 4 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 62228|app: 0|req: 3/22] 192.168.1.106 () {46 vars in 853 bytes} [Tue Nov  5 20:01:34 2019] POST /user/login/ => generated 2405 bytes in 204 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 62229|app: 0|req: 6/23] 192.168.1.106 () {46 vars in 853 bytes} [Tue Nov  5 20:02:42 2019] POST /user/login/ => generated 0 bytes in 107 msecs (HTTP/1.1 302) 8 headers in 549 bytes (1 switches on core 1)
+[pid: 62229|app: 0|req: 7/24] 192.168.1.106 () {30 vars in 563 bytes} [Tue Nov  5 20:02:42 2019] GET /favicon.ico => generated 77 bytes in 2 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 62232|app: 0|req: 9/25] 192.168.1.106 () {30 vars in 563 bytes} [Tue Nov  5 20:02:48 2019] GET /favicon.ico => generated 77 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 62228|app: 0|req: 4/26] 192.168.1.106 () {40 vars in 752 bytes} [Tue Nov  5 20:03:15 2019] GET /cart/ => generated 12166 bytes in 185 msecs (HTTP/1.1 200) 5 headers in 293 bytes (1 switches on core 1)
+[pid: 62232|app: 0|req: 10/27] 192.168.1.106 () {38 vars in 713 bytes} [Tue Nov  5 20:03:19 2019] GET /goods/1/ => generated 9887 bytes in 145 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 62229|app: 0|req: 8/28] 192.168.1.106 () {40 vars in 760 bytes} [Tue Nov  5 20:03:42 2019] GET /goods/25/ => generated 9699 bytes in 120 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 62230|app: 0|req: 7/29] 192.168.1.106 () {48 vars in 932 bytes} [Tue Nov  5 20:03:51 2019] POST /cart/add/ => generated 67 bytes in 20 msecs (HTTP/1.1 200) 4 headers in 114 bytes (1 switches on core 0)
+[pid: 62230|app: 0|req: 8/30] 192.168.1.106 () {30 vars in 563 bytes} [Tue Nov  5 20:03:54 2019] GET /favicon.ico => generated 77 bytes in 2 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 62229|app: 0|req: 9/31] 192.168.1.106 () {30 vars in 563 bytes} [Tue Nov  5 20:03:58 2019] GET /favicon.ico => generated 77 bytes in 2 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 62228|app: 0|req: 5/32] 192.168.1.106 () {30 vars in 563 bytes} [Tue Nov  5 20:04:01 2019] GET /favicon.ico => generated 77 bytes in 32 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 62232|app: 0|req: 11/33] 127.0.0.1 () {40 vars in 729 bytes} [Tue Nov  5 20:04:07 2019] GET /user/ => generated 4678 bytes in 110 msecs (HTTP/1.1 200) 4 headers in 124 bytes (1 switches on core 0)
+[pid: 62232|app: 0|req: 12/34] 192.168.1.106 () {40 vars in 766 bytes} [Tue Nov  5 20:04:25 2019] GET /user/logout/ => generated 0 bytes in 105 msecs (HTTP/1.1 302) 5 headers in 214 bytes (1 switches on core 1)
+[pid: 62232|app: 0|req: 13/35] 192.168.1.106 () {30 vars in 519 bytes} [Tue Nov  5 20:04:26 2019] GET /favicon.ico => generated 77 bytes in 3 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 0)
+[pid: 62230|app: 0|req: 9/36] 192.168.1.106 () {30 vars in 519 bytes} [Tue Nov  5 20:04:27 2019] GET /favicon.ico => generated 77 bytes in 2 msecs (HTTP/1.1 404) 3 headers in 100 bytes (1 switches on core 1)
+[pid: 62232|app: 0|req: 14/37] 192.168.1.106 () {42 vars in 746 bytes} [Tue Nov  5 20:04:56 2019] GET /index/ => generated 14437 bytes in 110 msecs (HTTP/1.1 200) 4 headers in 125 bytes (1 switches on core 1)
+[pid: 62229|app: 0|req: 10/38] 192.168.1.106 () {40 vars in 718 bytes} [Tue Nov  5 20:04:59 2019] GET /user/login/ => generated 2394 bytes in 2 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 62230|app: 0|req: 10/39] 192.168.1.106 () {46 vars in 870 bytes} [Tue Nov  5 20:05:19 2019] POST /user/login/ => generated 2405 bytes in 383 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 2 seconds
+worker 2 buried after 2 seconds
+worker 3 buried after 2 seconds
+worker 4 buried after 1 seconds
+goodbye to uWSGI.

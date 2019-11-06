@@ -1,0 +1,27 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="14">
+            <item index="0" class="java.lang.String" itemvalue="mutagen" />
+            <item index="1" class="java.lang.String" itemvalue="python-alipay-sdk" />
+            <item index="2" class="java.lang.String" itemvalue="uWSGI" />
+            <item index="3" class="java.lang.String" itemvalue="base_detail.html" />
+            <item index="4" class="java.lang.String" itemvalue="base_user_center.html" />
+            <item index="5" class="java.lang.String" itemvalue="requests" />
+            <item index="6" class="java.lang.String" itemvalue="base.html" />
+            <item index="7" class="java.lang.String" itemvalue="fdfs-client-py" />
+            <item index="8" class="java.lang.String" itemvalue="celery" />
+            <item index="9" class="java.lang.String" itemvalue="Django" />
+            <item index="10" class="java.lang.String" itemvalue="django-redis" />
+            <item index="11" class="java.lang.String" itemvalue="PyMySQL" />
+            <item index="12" class="java.lang.String" itemvalue="base_no_cart.html" />
+            <item index="13" class="java.lang.String" itemvalue="Pillow" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

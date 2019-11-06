@@ -1,0 +1,355 @@
+﻿celery==4.3.0
+Django==2.2.5
+django-haystack==2.8.1
+django-redis==4.10.0
+django-redis-sessions==0.6.1
+django-tinymce==2.8.0
+fdfs_client-py==1.2.6
+itsdangerous==1.1.0
+jieba==0.39
+PyMySQL==0.9.2
+python-alipay-sdk==1.10.1
+redis==3.3.11
+uWSGI==2.0.18
+Whoosh==2.7.4
+Pillow==6.1.0
+mutagen==1.42.0
+requests==2.20.0
+
+############################################
+base.html  # 作为首页、登录、注册的父模板
+base_detail.html  # 作为详情页、列表页的父模板
+base_no_cart.html  # 作为购物车、提交订单页面的父模板
+
+# base_user_center.html继承base_no_cart.html，
+因为购物车、提交订单、用户中心的顶部搜索部分相同
+base_user_center.html  # 是用户中心三个页面的父模板
+
+###############################################
+
+# Windows下redis 启动命令
+redis-server redis.windows.conf
+3.Windows开启客户端连接redis数据库
+同样的方法打开一个新的窗口切换到安装目录下，
+输入redis-cli.exe -h 127.0.0.1 -p 6379
+使用ping命令，如果回复一个pong则表示连接成功了
+# redis数据库操作步骤，输入以下命令
+# select 1
+# keys *
+# hmset cart_2 1 3 2 5  # 设置hash字典
+# hlen cart_2  # 计算cart_2字典中字段的长度
+
+# Ubuntu下开启redis
+1.安装redis
+apt update
+apt install redis-server
+2.启动redis
+redis-server
+3.启动redis客户端
+redis-cli
+# 后面redis命令操作相同
+# 查询redis是否启动
+ps aux | grep redis
+
+
+# windows下celery 启动命令
+celery -A celery_tasks.tasks worker -l info -P eventlet
+
+# ubuntu下celery 启动命令
+cd /PycharmProjects/daily_fresh
+celery -A celery_tasks.tasks worker -l info
+
+
+# 安装vim
+sudo apt-get install -y vim
+
+
+# linux安装fast_dfs步骤
+# 安装fastdfs依赖包
+
+1. chmod 776 ./make.sh
+2. ./make.sh
+3. sudo ./make.sh install
+# 安装fastdfs
+1. chmod 776 ./make.sh  # 776代表权限设置
+2. ./make.sh
+3. sudo ./make.sh install
+
+# 配置跟踪服务器tracker
+1.sudo cp /etc/fdfs/tracker.conf.sample /etc/fdfs/tracker.conf
+
+2.在/home/wangm/目录中创建目录 fastdfs/tracker
+sudo mkdir -p /home/wangm/fastdfs/tracker  # -p的横杠要注意格式
+3.编辑/etc/fdfs/tracker.conf配置文件
+sudo vim /etc/fdfs/tracker.conf
+# 修改内容：
+base_path=/home/wangm/fastdfs/tracker
+
+# 配置存储服务器storage
+1. sudo cp /etc/fdfs/storage.conf.sample /etc/fdfs/storage.conf
+2. 在/home/wangm/fastdfs/ 目录中创建目录 storage
+sudo mkdir –p /home/wangm/fastdfs/storage
+3. 编辑/etc/fdfs/storage.conf配置文件
+sudo vim /etc/fdfs/storage.conf
+# 修改内容：
+base_path=/home/wangm/fastdfs/storage
+store_path0=/home/wangm/fastdfs/storage
+tracker_server=自己ubuntu虚拟机的ip地址:22122
+
+# 开启trackerd,storaged
+1.wangm@OrangeS:/home/python/fastdfs$ cd /usr/bin/
+用法：Usage: ./fdfs_trackerd <config_file> [start | stop | restart]
+2.wangm@OrangeS:/usr/bin$ sudo ./fdfs_trackerd /etc/fdfs/tracker.conf start
+3.wangm@OrangeS:/usr/bin$ sudo ./fdfs_storaged /etc/fdfs/storage.conf start
+#  查看是否启动
+4. ps aux | grep fdfs
+
+# 测试是否安装成功
+# 拷贝文件命令
+1. sudo cp /etc/fdfs/client.conf.sample /etc/fdfs/client.conf
+# 修改文件的命令
+2. 编辑/etc/fdfs/client.conf配置文件
+sudo vim /etc/fdfs/client.conf
+修改内容：
+base_path=/home/wangm/fastdfs/tracker
+tracker_server=自己ubuntu虚拟机的ip地址:22122
+3. 上传文件测试：
+# 上传文件命令
+fdfs_upload_file /etc/fdfs/client.conf ~/Desktop/fruit.jpg
+如果返回类似group1/M00/00/00/wKgBZ12vAI6AM8C4AAA-OovRk44939.jpg的文件id则说明文件上传成功
+
+
+# 安装nginx及fastdfs-nginx-module
+# 安装nginx
+进入nginx-1.8.1目录中
+# 先要给configure设置权限 chmod 776 configure
+执行sudo ./configure --prefix=/usr/local/nginx/ --add-module=/home/wangm/fastdfs-nginx-module-master/src
+vim Makefile
+sudo make
+sudo make install
+
+# 配置fastdfs-nginx-module
+1.sudo cp /home/wangm/fastdfs-nginx-module-master/src/mod_fastdfs.conf /etc/fdfs/mod_fastdfs.conf
+
+2.sudo vim /etc/fdfs/mod_fastdfs.conf
+修改内容：
+connect_timeout=10
+tracker_server=自己ubuntu虚拟机的ip地址:22122
+url_have_group_name=true
+store_path0=/home/wangm/fastdfs/storage
+
+3.sudo cp /home/wangm/fastdfs-master/conf/http.conf /etc/fdfs/http.conf
+
+4.sudo cp /home/wangm/fastdfs-master/conf/mime.types /etc/fdfs/mime.types
+
+# 配置信息命令
+5.sudo vim /usr/local/nginx/conf/nginx.conf
+在http部分中添加配置信息如下:
+
+# 启动nginx
+sudo /usr/local/nginx/sbin/nginx
+cd /usr/local/nginx/sbin/
+sudo ./nginx
+
+# 停止nginx，在/usr/local/nginx/sbin下使用此命令
+sudo ./nginx -s stop
+
+# 查看nginx是否启动
+ps aux | grep nginx
+
+# 然后输入以下网址
+在Ubuntu16.04下使用
+http://127.0.0.1:8888/group1/M00/00/00/wKgBZ12vAI6AM8C4AAA-OovRk44939.jpg
+
+在Ubuntu18.04下使用
+http://127.0.0.1:8888/group1/M00/00/00/wKjIgF2-k3WAQX9DAABaBhJPBGI451.jpg
+
+# 用FastDFS的优势
+1.解决文件的海量存储，存储容量扩展方便。
+2.解决文件内容的重复。
+3.结合nginx提高网站提供图片的效率。
+
+###########################################################################################################
+# 首页页面的静态化
+    用celery定义一个静态函数
+
+# 什么时候首页的静态页面需要重新生成？
+    当管理员后台修改首页信息对应的表格中的数据的时候，需要重新生成首页静态页。
+
+# 在django下进入shell命令
+python manage.py shell
+
+
+# 在shell终端下运行以下命令
+from celery_tasks.tasks import generate_static_index_html
+# 当管理员通过后台修改首页信息对应的表格中的数据的时候,需要重新生成首页静态页
+generate_static_index_html.delay()
+
+# 配置nginx提交静态页面
+1. cd /usr/local/nginx
+2. sudo vi ./conf/nginx.conf
+
+# 页面数据的缓存
+    把页面使用的数据存放在缓存中，当再次使用这些数据时，先从缓存中获取，
+如果获取不到，再去查询数据库。减少数据库查询的次数。
+
+# 什么时候需要更新首页的缓存数据？
+    当管理员通过后台修改首页信息对应的表格中的数据的时候,需要更新首页的缓存数据。
+
+# 以上操作是为了网站本身性能优化，减少数据库的查询次数。
+# 如果面试问到你有没有网站优化方面的经验，可以去说一个页面的静态化，数据的缓存
+# 防止恶意的攻击。DDOS攻击
+
+
+# 每个用户的历史浏览记录用一条数据保存
+# redis存储历史浏览记录，使用list格式存储，history_用户id=[2,3,1]
+
+# 一个用户的购物车记录用户一条数据保存。
+# redis存储购物车记录，使用hash格式存储，cart_用户id:{'sku_id':商品数目，'sku_id2':商品数目}
+
+# 添加商品到购物车
+1）请求方式，采用ajax post
+    如果涉及到数据的修改（新增，更新，删除），采用post
+    如果只涉及到数据的获取，采用get
+2）传递参数：商品id 商品数量
+
+
+get传参数：/cart/add?sku_id=1&count=3
+post传参数：{'sku_id':1,'count':3}
+url传参数：url配置时捕获参数
+
+
+# 订单创建
+
+用户点击提交订单时，
+需要传递的参数：收获地址 支付方式 商品id
+
+###########################################################################################################
+# cmd启动mysql
+先进入mysql的bin目录下：cd
+然后输入mysql -u root -p
+
+# 一 查看数据库、表、数据字段、数据
+# 查看当前所有的数据库：
+show databases;
+# 选择（进入） 数据库：
+use daily_fresh
+# 查看当前数据库所有的表：
+show tables；
+# 查看 某个表的字段结构 ：
+ desc  表名；
+# 查询表数据：
+select * from df_goods_sku where id=17;
+
+select * from df_order_info;
+select * from df_order_goods;
+delete from df_order_goods;
+delete from df_order_info;
+select * from df_order_info;
+二  新建数据库、数据表（表）、数据（添加数据）
+新建数据库：
+create  database  数据库名；
+新建表：
+CREATE TABLE 表名 <
+    字段名字   数据类型  修饰,
+    ...
+ >;
+添加数据：
+insert into 表名 valuse（值，值）；
+三  修改数据表，修改数据
+修改数据表：
+alter table 表名 add 字段名 类型 修饰【加的列在表的最后面】
+alter table 表名 add 字段名  类型 修饰 after 某列【把新列加在某列后面】
+修改数据：
+update user set name=新值 where
+# 修改表中的数据
+update df_order_info set order_status=4 where order_id=201911051216502;
+
+四 删除数据库，数据表，数据
+删除数据库：
+drop database 数据库名；
+删除数据表：
+drop  table  表名;
+
+# Ubuntu下安装mysql
+1.安装MySQL
+#命令1
+sudo apt-get update
+#命令2
+sudo apt-get install mysql-server
+2.配置MySQL
+2.1 初始化配置
+sudo mysql_secure_installation
+
+# gedit==vim 另外一种配置文件文本编辑器
+sudo gedit /etc/mysql/mysql.conf.d/mysqld.cnf
+
+# 进入pycharm命令
+cd /home/wangm/Downloads/pycharm-2019.2.4/bin
+./pycharm.sh   启动脚本运行
+
+# 删除文件命令
+rm -rf 文件夹的名字       （-r 是 循环的意思， f是不询问的意思）
+
+# 给Ubuntu的python环境拷贝文件
+wangm@OrangeS:/usr/local/lib/python3.6/dist-packages$ sudo cp /home/wangm/haystack . -r
+
+# 修改对应文件的数据的命令
+vim utils.py==sudo gedit utils.py
+sudo gedit __init__.py
+
+# 启动uwsgi命令
+uwsgi --ini uwsgi.ini
+# 停止uwsgi命令
+uwsgi --stop uwsgi.pid
+# 查询uwsgi命令
+ps aux | grep uwsgi
+
+# 在Ubuntu的var目录下创建文件，保存静态文件
+sudo mkdir -p /var/www/daily_fresh/static
+
+# 修改文件权限
+sudo chmod 777 /var/www/daily_fresh/static/
+
+# 安装虚拟环境
+# virtualenv已安装
+
+################################################################################################################
+# 启动天天生鲜项目的步骤
+
+2.启动redis
+redis-server
+
+# ubuntu下celery 启动命令
+cd /PycharmProjects/daily_fresh
+celery -A celery_tasks.tasks worker -l info
+
+# 开启trackerd,storaged
+1.wangm@OrangeS:/home/python/fastdfs$ cd /usr/bin/
+用法：Usage: ./fdfs_trackerd <config_file> [start | stop | restart]
+2.wangm@OrangeS:/usr/bin$ sudo ./fdfs_trackerd /etc/fdfs/tracker.conf start
+3.wangm@OrangeS:/usr/bin$ sudo ./fdfs_storaged /etc/fdfs/storage.conf start
+#  查看是否启动
+4. ps aux | grep fdfs
+
+# 启动nginx
+sudo /usr/local/nginx/sbin/nginx
+cd /usr/local/nginx/sbin/
+sudo ./nginx
+
+# 进入pycharm命令
+cd /home/wangm/Downloads/pycharm-2019.2.4/bin
+./pycharm.sh   启动脚本运行
+
+# 在pycharm中启动uwsgi命令
+uwsgi --ini uwsgi.ini
+# 停止uwsgi命令
+uwsgi --stop uwsgi.pid
+# 查询uwsgi命令
+ps aux | grep uwsgi
+
+# 在Ubuntu中打开网页输入127.0.0.1
+
+# 在Windows中输入192.168.1.118
+
+
