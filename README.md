@@ -5,7 +5,7 @@
 ![Finish](https://img.shields.io/badge/Finish-true-green)
 ---
 # 天天生鲜-django2.2版本
-相关搭建过程见博客：https://blog.csdn.net/weixin_42247922/article/details/102938442
+相关搭建过程见博客：https://blog.csdn.net/weixin_42247922/article/details/102958807
 
 ## 简介
 **本项目替换原项目框架django1.8为最新版的django2.2.5**，该项目包含了实际开发中的电商项目中大部分的功能开发和知识点实践，
