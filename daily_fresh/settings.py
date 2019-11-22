@@ -151,11 +151,11 @@ EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.yeah.net'
 EMAIL_PORT = 25
 # 发送邮件的邮箱
-EMAIL_HOST_USER = 'liupengfeizh@yeah.net'
+EMAIL_HOST_USER = 'liupeuhjhkjh@yeah.net'
 # 在邮箱中设置的客户端授权密码
-EMAIL_HOST_PASSWORD = '843296031zh'
+EMAIL_HOST_PASSWORD = '8432778999zh'
 # 收件人看到的发件人
-EMAIL_FROM = '天天生鲜 <liupengfeizh@yeah.net>'
+EMAIL_FROM = '天天生鲜 <liupeuhjhkjh@yeah.net>'
 
 
 # Django的缓存配置
