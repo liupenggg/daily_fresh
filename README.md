@@ -57,13 +57,13 @@ OS: win10
  
 
 ## 项目架构图
-![项目架构图](https://blog.csdn.net/weixin_42247922/article/details/102938270)
+[项目架构图](https://blog.csdn.net/weixin_42247922/article/details/102938270)
 
 ## 数据库表分析图
-![数据库表分析图](https://blog.csdn.net/weixin_42247922/article/details/102963187)
+[数据库表分析图](https://blog.csdn.net/weixin_42247922/article/details/102963187)
 
 # 环境配置
-- [FDFS配合Nginx的安装](https://blog.csdn.net/weixin_42247922/article/details/102970976)
+[FDFS配合Nginx的安装](https://blog.csdn.net/weixin_42247922/article/details/102970976)
 
 # 项目部署（开发环境）
 - 依赖库安装
