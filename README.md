@@ -57,18 +57,14 @@ OS: win10
  
 
 ## 项目架构图
-![项目架构图](documents/mdImages/project_frame.png)
+![项目架构图](https://blog.csdn.net/weixin_42247922/article/details/102938270)
 
 ## 数据库表分析图
-![数据库表分析图](documents/mdImages/db_design.png)
+![数据库表分析图](https://blog.csdn.net/weixin_42247922/article/details/102963187)
 
 # 环境配置
-- [FDFS配合Nginx的安装](documents/FastDFS-description.md)
-- [python3与fdfs交互踩坑记录](documents/py3fdfs.md)
-- [windows上celery4.x不兼容问题完美解决办法](documents/celery_on_win10.md)
-- [jieba分词设置修改](documents/jieba.md)
-- [支付宝sdk接入](https://github.com/fzlee/alipay/blob/master/README.zh-hans.md)
-- [django1.x和2.x的不同之处](documents/diff.md)
+- [FDFS配合Nginx的安装](https://blog.csdn.net/weixin_42247922/article/details/102970976)
+
 # 项目部署（开发环境）
 - 依赖库安装
 ```text
