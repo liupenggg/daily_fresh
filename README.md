@@ -86,9 +86,9 @@ $ celery -A celery_tasks.tasks worker --loglevel=info -P eventlet
 
 # 启动FastDFS服务, 启动nginx
 ```shell script
-$ /usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf start
-$ /usr/bin/fdfs_storaged /etc/fdfs/storage.conf start
-$ nginx
+$ sudo /usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf start
+$ sudo /usr/bin/fdfs_storaged /etc/fdfs/storage.conf start
+$ sudo /usr/local/nginx/sbin/nginx
 ```
 
 # 迁移数据库
