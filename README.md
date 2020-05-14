@@ -101,6 +101,16 @@ python manage.py migrate
 python manage.py runserver
 ```
 
+# (Django 对原有数据模型增加新内容如何进行再次迁移（不删除原来的迁移），怎么操作？也是通过这两个命令进行操作)
+在 models 里定义好新的字段，在项目根目录下重新执行
+
+```
+python manage.py makemigrations 
+
+python manage.py migrate
+```
+就可以了呀
+
 # 后言
 如果本项目能帮助到在学习django2的你或者对你有其他帮助，give me a star
 若有什么需要改进或者疑问的地方欢迎提出issue 
